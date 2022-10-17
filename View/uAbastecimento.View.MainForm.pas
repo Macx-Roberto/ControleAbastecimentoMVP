@@ -36,41 +36,6 @@ type
 
 var
   FrmPrincipalAB: TFrmPrincipalAB;
-
-
-  {
-    Requisitos funcionais:
-
-1.	Preciso controlar os abastecimentos feitos durante cada dia,
-  identificando a bomba utilizada, a quantidade de litros e o valor abastecido;
-
-2.	Em cada abastecimento incide um imposto de 13% do valor abastecido,
-e essa informa��o deve ser registrada;
-
-3.	Cada bomba est� ligada a um tanque.
-  No posto ABC existem dois tanques, um de gasolina e um de �leo diesel.
-  Para cada tanque duas bombas de combust�vel;
-
-4.	Tamb�m gostaria de um relat�rio em que os abastecimentos fossem agrupados,
-exibindo o dia, o tanque, a bomba e o valor. E ao final do relat�rio a soma total do per�odo.
-
-Requisitos n�o funcionais:
-1.	A aplica��o deve ser simples (Minimum Viable Product);
-2.	Utilize boas pr�ticas e conhecimentos que voc� julga interessantes;
-3.	Caso sinta necessidade crie testes unit�rios/funcionais;
-4.	A vers�o do Delphi fica a seu crit�rio, mas utilize apenas componentes/recursos nativos;
-5.	Para constru��o do relat�rio utilize o Fortes Report;
-6.	Utilizar banco de dados firebird ou sqlite  (enviar junto com o projeto o script de cria��o do banco) .
-
-Requisitos n�o funcionais que ser�o bem pontuados:
-1.	Tempo de Entrega.
-2.	Usar github para publica��o do projeto
-3.	Usar Delphi XE6
-4.	Orienta��o a Objetos
-5.	Rtti, Helpers
-6.	Firedac
-  }
-
 implementation
 
 {$R *.dfm}
