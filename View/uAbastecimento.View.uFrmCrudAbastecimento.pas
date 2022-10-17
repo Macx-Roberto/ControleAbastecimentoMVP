@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.WinXPickers, Vcl.StdCtrls,
-  Vcl.NumberBox, Vcl.Buttons, uAbastecimento.RecordTypes, System.Generics.Collections;
+  Vcl.NumberBox, Vcl.Buttons, uAbastecimento.RecordTypes, System.Generics.Collections,
+  uAbastecimento.Service.Interfaces;
 
 type
   TfrmCrudAbastecimento = class(TForm)
@@ -30,6 +31,7 @@ type
     { Private declarations }
     FrAbastecimento: tAbastecimento;
     FListBombas: TList<tBomba>;
+    FoCalculoImposto: ICalculoImposto;
     procedure SetDadosComponentes;
     function GetDadosComponentes: tAbastecimento;
     function GetCodigoBomba: Integer;
@@ -41,7 +43,7 @@ type
     procedure EditarAbastecimento(const ArAbastecimento: tAbastecimento);
     function GetRecordAbastecimento: tAbastecimento;
 
-   class function New(ABombas: TList<tBomba>): TfrmCrudAbastecimento;
+   class function New(ABombas: TList<tBomba>; oCalculoImposto: ICalculoImposto): TfrmCrudAbastecimento;
     { Public declarations }
   end;
 
@@ -84,7 +86,7 @@ end;
 
 procedure TfrmCrudAbastecimento.edt_ValorChangeValue(Sender: TObject);
 begin
-  edt_ValorImposto.Value := edt_Valor.Value * 0.13;
+  edt_ValorImposto.Value := FoCalculoImposto.CalcularImposto(edt_Valor.Value);
 end;
 
 procedure TfrmCrudAbastecimento.FormDestroy(Sender: TObject);
@@ -123,11 +125,12 @@ begin
   Result := Integer(cbBomba.Items.Objects[cbBomba.ItemIndex]);
 end;
 
-class function TfrmCrudAbastecimento.New(ABombas: TList<tBomba>): TfrmCrudAbastecimento;
+class function TfrmCrudAbastecimento.New(ABombas: TList<tBomba>; oCalculoImposto: ICalculoImposto): TfrmCrudAbastecimento;
 begin
   if (not Assigned(frmCrudAbastecimento)) then
     Application.CreateForm(TfrmCrudAbastecimento, frmCrudAbastecimento);
   frmCrudAbastecimento.SetListBombas(ABombas);
+  frmCrudAbastecimento.FoCalculoImposto := oCalculoImposto;
   Result := frmCrudAbastecimento;
 end;
 
@@ -160,6 +163,4 @@ begin
   end;
 end;
 
-
-// FListBombas destruir
 end.

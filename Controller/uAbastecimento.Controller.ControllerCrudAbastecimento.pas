@@ -23,7 +23,7 @@ uses
 implementation
 
 uses
-  uAbastecimento.Model.Entidades.Bomba;
+  uAbastecimento.Model.Entidades.Bomba, uAbastecimento.Service.CalculoImpostoFixo;
 
 function TControllerViewCrudAbastecimento.IncluirAbastecimento: tAbastecimento;
 begin
@@ -53,7 +53,7 @@ end;
 
 constructor TControllerViewCrudAbastecimento.Create;
 begin
-  FFrmCrud := TfrmCrudAbastecimento.New(TModelEntidadesBomba.New.GetList);
+  FFrmCrud := TfrmCrudAbastecimento.New(TModelEntidadesBomba.New.GetList, TImpostoFixo.New);
 end;
 
 

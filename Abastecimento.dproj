@@ -118,8 +118,10 @@
         <DCCReference Include="Enum\uAbastecimento.EnumTypes.pas"/>
         <DCCReference Include="Controller\uAbastecimento.Controller.ControllerCrudAbastecimento.pas"/>
         <DCCReference Include="Controller\uAbastecimento.Controller.ControllerPrincipal.pas"/>
-        <DCCReference Include="Controller\uAbastecimento.Controller.Factory.Interfaces.pas"/>
+        <DCCReference Include="Controller\uAbastecimento.Controller.Interfaces.pas"/>
         <DCCReference Include="Controller\uAbastecimento.Controller.Factory.Query.pas"/>
+        <DCCReference Include="Service\uAbastecimento.Service.CalculoImpostoFixo.pas"/>
+        <DCCReference Include="Service\uAbastecimento.Service.Interfaces.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

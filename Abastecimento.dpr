@@ -16,8 +16,10 @@ uses
   uAbastecimento.EnumTypes in 'Enum\uAbastecimento.EnumTypes.pas',
   uAbastecimento.Controller.ControllerCrudAbastecimento in 'Controller\uAbastecimento.Controller.ControllerCrudAbastecimento.pas',
   uAbastecimento.Controller.ControllerPrincipal in 'Controller\uAbastecimento.Controller.ControllerPrincipal.pas',
-  uAbastecimento.Controller.Factory.Interfaces in 'Controller\uAbastecimento.Controller.Factory.Interfaces.pas',
-  uAbastecimento.Controller.Factory.Query in 'Controller\uAbastecimento.Controller.Factory.Query.pas';
+  uAbastecimento.Controller.Interfaces in 'Controller\uAbastecimento.Controller.Interfaces.pas',
+  uAbastecimento.Controller.Factory.Query in 'Controller\uAbastecimento.Controller.Factory.Query.pas',
+  uAbastecimento.Service.CalculoImpostoFixo in 'Service\uAbastecimento.Service.CalculoImpostoFixo.pas',
+  uAbastecimento.Service.Interfaces in 'Service\uAbastecimento.Service.Interfaces.pas';
 
 {$R *.res}
 
