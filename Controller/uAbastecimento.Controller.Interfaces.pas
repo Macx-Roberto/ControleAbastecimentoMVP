@@ -19,7 +19,8 @@ type
     procedure IncluirAbastecimento;
     procedure EditarAbastecimento;
     procedure ExcluirAbastecimento;
-  end;
+    procedure ExibirFormRelatorio;
+end;
 
   IControllerViewCrudAbastecimento= interface
   ['{12EA69B6-428E-495C-92AA-A7B9C87CAB6C}']

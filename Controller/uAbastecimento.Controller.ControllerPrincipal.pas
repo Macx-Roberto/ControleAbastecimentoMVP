@@ -23,12 +23,13 @@ type
     procedure IncluirAbastecimento;
     procedure EditarAbastecimento;
     procedure ExcluirAbastecimento;
+    procedure ExibirFormRelatorio;
   end;
 
 implementation
 
 uses
-  uAbastecimento.Model.Entidades.Abastecimento;
+  uAbastecimento.Model.Entidades.Abastecimento, uAbastecimento.View.uFrmRelAbastecimento;
 
 class function TControllerPrincipal.New: IControllerPrincipal;
 begin
@@ -86,6 +87,11 @@ begin
 
   FoModelAbastecimento.Excluir(FdsTela.DataSet.FieldByName('ID').AsInteger);
   FoModelAbastecimento.Listar(FdsTela);
+end;
+
+procedure TControllerPrincipal.ExibirFormRelatorio;
+begin
+  TFrmRelatorio.New;
 end;
 
 end.

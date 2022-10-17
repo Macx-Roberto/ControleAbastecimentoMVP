@@ -19,16 +19,18 @@ uses
   uAbastecimento.Controller.Interfaces in 'Controller\uAbastecimento.Controller.Interfaces.pas',
   uAbastecimento.Controller.Factory.Query in 'Controller\uAbastecimento.Controller.Factory.Query.pas',
   uAbastecimento.Service.CalculoImpostoFixo in 'Service\uAbastecimento.Service.CalculoImpostoFixo.pas',
-  uAbastecimento.Service.Interfaces in 'Service\uAbastecimento.Service.Interfaces.pas';
+  uAbastecimento.Service.Interfaces in 'Service\uAbastecimento.Service.Interfaces.pas',
+  uAbastecimento.View.uFrmRelAbastecimento in 'View\uAbastecimento.View.uFrmRelAbastecimento.pas' {FrmRelatorio};
 
 {$R *.res}
 
 begin
-  ReportMemoryLeaksOnShutdown := True;
+//  ReportMemoryLeaksOnShutdown := True;
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TInicializarBanco.InicializarDB;
   Application.CreateForm(TFrmPrincipalAB, FrmPrincipalAB);
   Application.CreateForm(TfrmCrudAbastecimento, frmCrudAbastecimento);
+  Application.CreateForm(TFrmRelatorio, FrmRelatorio);
   Application.Run;
 end.

@@ -22,6 +22,7 @@ type
     function Listar(ADataSource: TDataSource): IEntidadeAbastecimento;
     function Salvar(ArAbastecimento: tAbastecimento): Integer;
     procedure Excluir(AnIdAbastecimento: Integer);
+    function ListarRelatorio(ADataSource: TDataSource; AdtInicio: Tdate; AdtFim: Tdate): IEntidadeAbastecimento;
   end;
 
 implementation
@@ -89,7 +90,7 @@ begin
   if (ArAbastecimento.Id > 0) and (FoQuery.DataSet.FieldByName('ID').AsInteger <= 0) then
     FoQuery.DataSet.FieldByName('ID').AsInteger := ArAbastecimento.Id;
 
-  FoQuery.DataSet.FieldByName('DATA').AsString           := FormatDateTime('dd/MM/yyyy', ArAbastecimento.Data);
+  FoQuery.DataSet.FieldByName('DATA').AsString           := FormatDateTime('yyyy-MM-dd', ArAbastecimento.Data);
   FoQuery.DataSet.FieldByName('ID_BOMBA').AsInteger      := ArAbastecimento.CodigoBomba;
   FoQuery.DataSet.FieldByName('QTDELT').AsExtended       := ArAbastecimento.Litros;
   FoQuery.DataSet.FieldByName('ValorTotal').AsExtended   := ArAbastecimento.ValorTotal;
@@ -99,6 +100,18 @@ end;
 procedure TModelEntidadesAbastecimento.Excluir(AnIdAbastecimento: Integer);
 begin
   FoQuery.Execute(Format('DELETE FROM ABASTECIMENTO WHERE ID = %d', [AnIdAbastecimento]));
+end;
+
+function TModelEntidadesAbastecimento.ListarRelatorio(ADataSource: TDataSource; AdtInicio: Tdate; AdtFim: Tdate): IEntidadeAbastecimento;
+begin
+  FoQuery.SQL('SELECT A.DATA, A.QTDELT, A.ValorTotal, A.ValorImposto, ' +
+              ' B.DESCRICAO AS DESC_BOMBA, B.ID_TANQUE ' +
+              ' FROM ABASTECIMENTO A ' +  
+              ' INNER JOIN BOMBA B ON B.ID = A.ID_BOMBA ' +
+              Format(' WHERE Date(A.DATA) >= %s and Date(A.DATA) <= %s ORDER BY A.DATA',
+                     [QuotedStr(FormatDateTime('yyyy-MM-dd', AdtInicio)),
+                      QuotedStr(FormatDateTime('yyyy-MM-dd', AdtFim))]));
+  ADataSource.DataSet := FoQuery.DataSet;
 end;
 
 end.

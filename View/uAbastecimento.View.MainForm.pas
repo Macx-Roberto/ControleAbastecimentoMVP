@@ -10,7 +10,6 @@ uses
 
 type
   TFrmPrincipalAB = class(TForm)
-    Panel1: TPanel;
     Panel2: TPanel;
     GroupBox2: TGroupBox;
     DBGrid1: TDBGrid;
@@ -20,11 +19,13 @@ type
     btnExcluir: TSpeedButton;
     DsGrid: TDataSource;
     Editar: TSpeedButton;
+    SpeedButton1: TSpeedButton;
     procedure btnIncluirClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAtualizarClick(Sender: TObject);
     procedure EditarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     FoController: IControllerPrincipal;
     procedure CriarController;
@@ -44,28 +45,28 @@ var
   identificando a bomba utilizada, a quantidade de litros e o valor abastecido;
 
 2.	Em cada abastecimento incide um imposto de 13% do valor abastecido,
-e essa informação deve ser registrada;
+e essa informaï¿½ï¿½o deve ser registrada;
 
-3.	Cada bomba está ligada a um tanque.
-  No posto ABC existem dois tanques, um de gasolina e um de óleo diesel.
-  Para cada tanque duas bombas de combustível;
+3.	Cada bomba estï¿½ ligada a um tanque.
+  No posto ABC existem dois tanques, um de gasolina e um de ï¿½leo diesel.
+  Para cada tanque duas bombas de combustï¿½vel;
 
-4.	Também gostaria de um relatório em que os abastecimentos fossem agrupados,
-exibindo o dia, o tanque, a bomba e o valor. E ao final do relatório a soma total do período.
+4.	Tambï¿½m gostaria de um relatï¿½rio em que os abastecimentos fossem agrupados,
+exibindo o dia, o tanque, a bomba e o valor. E ao final do relatï¿½rio a soma total do perï¿½odo.
 
-Requisitos não funcionais:
-1.	A aplicação deve ser simples (Minimum Viable Product);
-2.	Utilize boas práticas e conhecimentos que você julga interessantes;
-3.	Caso sinta necessidade crie testes unitários/funcionais;
-4.	A versão do Delphi fica a seu critério, mas utilize apenas componentes/recursos nativos;
-5.	Para construção do relatório utilize o Fortes Report;
-6.	Utilizar banco de dados firebird ou sqlite  (enviar junto com o projeto o script de criação do banco) .
+Requisitos nï¿½o funcionais:
+1.	A aplicaï¿½ï¿½o deve ser simples (Minimum Viable Product);
+2.	Utilize boas prï¿½ticas e conhecimentos que vocï¿½ julga interessantes;
+3.	Caso sinta necessidade crie testes unitï¿½rios/funcionais;
+4.	A versï¿½o do Delphi fica a seu critï¿½rio, mas utilize apenas componentes/recursos nativos;
+5.	Para construï¿½ï¿½o do relatï¿½rio utilize o Fortes Report;
+6.	Utilizar banco de dados firebird ou sqlite  (enviar junto com o projeto o script de criaï¿½ï¿½o do banco) .
 
-Requisitos não funcionais que serão bem pontuados:
+Requisitos nï¿½o funcionais que serï¿½o bem pontuados:
 1.	Tempo de Entrega.
-2.	Usar github para publicação do projeto
+2.	Usar github para publicaï¿½ï¿½o do projeto
 3.	Usar Delphi XE6
-4.	Orientação a Objetos
+4.	Orientaï¿½ï¿½o a Objetos
 5.	Rtti, Helpers
 6.	Firedac
   }
@@ -93,6 +94,11 @@ procedure TFrmPrincipalAB.FormCreate(Sender: TObject);
 begin
   CriarController;
   FoController.ListarAbastecimentos;
+end;
+
+procedure TFrmPrincipalAB.SpeedButton1Click(Sender: TObject);
+begin
+  FoController.ExibirFormRelatorio;
 end;
 
 procedure TFrmPrincipalAB.CriarController;

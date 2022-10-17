@@ -39,6 +39,7 @@ type
     function Listar(ADataSource: TDataSource): IEntidadeAbastecimento;
     function Salvar(ArAbastecimento: tAbastecimento): Integer;
     procedure Excluir(AnIdAbastecimento: Integer);
+    function ListarRelatorio(ADataSource: TDataSource; AdtInicio, AdtFim: Tdate): IEntidadeAbastecimento;
   end;
 
 implementation

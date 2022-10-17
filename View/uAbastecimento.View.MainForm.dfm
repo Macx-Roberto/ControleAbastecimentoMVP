@@ -14,34 +14,29 @@ object FrmPrincipalAB: TFrmPrincipalAB
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
+  object Panel2: TPanel
     Left = 0
     Top = 0
     Width = 573
-    Height = 33
-    Align = alTop
-    TabOrder = 0
-  end
-  object Panel2: TPanel
-    Left = 0
-    Top = 33
-    Width = 573
-    Height = 403
+    Height = 436
     Align = alClient
-    TabOrder = 1
+    TabOrder = 0
+    ExplicitTop = 33
+    ExplicitHeight = 403
     object GroupBox2: TGroupBox
       Left = 1
       Top = 1
       Width = 571
-      Height = 401
+      Height = 434
       Align = alClient
       Caption = 'Abastecimentos'
       TabOrder = 0
+      ExplicitHeight = 401
       object DBGrid1: TDBGrid
         Left = 2
         Top = 15
         Width = 567
-        Height = 343
+        Height = 376
         Align = alClient
         DataSource = DsGrid
         Font.Charset = DEFAULT_CHARSET
@@ -100,11 +95,12 @@ object FrmPrincipalAB: TFrmPrincipalAB
       end
       object Panel3: TPanel
         Left = 2
-        Top = 358
+        Top = 391
         Width = 567
         Height = 41
         Align = alBottom
         TabOrder = 1
+        ExplicitTop = 358
         object btnAtualizar: TSpeedButton
           Left = 292
           Top = 6
@@ -136,6 +132,14 @@ object FrmPrincipalAB: TFrmPrincipalAB
           Height = 25
           Caption = 'Editar'
           OnClick = EditarClick
+        end
+        object SpeedButton1: TSpeedButton
+          Left = 468
+          Top = 6
+          Width = 89
+          Height = 25
+          Caption = 'Relatorio'
+          OnClick = SpeedButton1Click
         end
       end
     end
