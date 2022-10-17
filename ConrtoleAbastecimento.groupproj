@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8B5AA42E-61D8-43C5-86E1-E66D151849DD}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Abastecimento.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TesteUnitario.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Abastecimento">
+        <MSBuild Projects="Abastecimento.dproj"/>
+    </Target>
+    <Target Name="Abastecimento:Clean">
+        <MSBuild Projects="Abastecimento.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Abastecimento:Make">
+        <MSBuild Projects="Abastecimento.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TesteUnitario">
+        <MSBuild Projects="TesteUnitario.dproj"/>
+    </Target>
+    <Target Name="TesteUnitario:Clean">
+        <MSBuild Projects="TesteUnitario.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TesteUnitario:Make">
+        <MSBuild Projects="TesteUnitario.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Abastecimento;TesteUnitario"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Abastecimento:Clean;TesteUnitario:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Abastecimento:Make;TesteUnitario:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
