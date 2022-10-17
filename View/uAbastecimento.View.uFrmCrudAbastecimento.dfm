@@ -114,7 +114,7 @@ object frmCrudAbastecimento: TfrmCrudAbastecimento
       Top = 112
       Width = 75
       Height = 25
-      Caption = 'btSalvar'
+      Caption = 'Salvar'
       TabOrder = 5
       OnClick = btSalvarClick
     end
@@ -123,7 +123,7 @@ object frmCrudAbastecimento: TfrmCrudAbastecimento
       Top = 112
       Width = 75
       Height = 25
-      Caption = 'Button1'
+      Caption = 'Cancelar'
       TabOrder = 6
       OnClick = btCancelarClick
     end

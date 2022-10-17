@@ -21,7 +21,6 @@ object FrmPrincipalAB: TFrmPrincipalAB
     Height = 33
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 550
   end
   object Panel2: TPanel
     Left = 0
@@ -30,7 +29,6 @@ object FrmPrincipalAB: TFrmPrincipalAB
     Height = 403
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 550
     object GroupBox2: TGroupBox
       Left = 1
       Top = 1
@@ -39,7 +37,6 @@ object FrmPrincipalAB: TFrmPrincipalAB
       Align = alClient
       Caption = 'Abastecimentos'
       TabOrder = 0
-      ExplicitWidth = 548
       object DBGrid1: TDBGrid
         Left = 2
         Top = 15
@@ -108,7 +105,6 @@ object FrmPrincipalAB: TFrmPrincipalAB
         Height = 41
         Align = alBottom
         TabOrder = 1
-        ExplicitWidth = 544
         object btnAtualizar: TSpeedButton
           Left = 292
           Top = 6
@@ -138,7 +134,7 @@ object FrmPrincipalAB: TFrmPrincipalAB
           Top = 6
           Width = 89
           Height = 25
-          Caption = 'Incluir'
+          Caption = 'Editar'
           OnClick = EditarClick
         end
       end
